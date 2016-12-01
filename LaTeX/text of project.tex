@@ -8,6 +8,7 @@
 \geometry{left=3cm,right=1cm,top=1cm,bottom=3cm}
 \usepackage{xcolor}
 \usepackage{tikz}
+\usetikzlibrary{trees}
 \usepackage{tabularx}
 \hypersetup{
 	colorlinks,
@@ -51,7 +52,7 @@
 	\section{Увод}
 	Нашия проект представлява онлайн система за управление на обученията, която да съчетава най-добрите практики при организиране на уроците, така че да е интересно, полезно и максимално улеснено за обучаващия се. Най-важното в проекта ни е да поощряваме бъдещия програмист, като му демонстрираме, че не е толкова трудно, колкото звучи. Това става чрез онлайн състезания, насочени към неговото ниво, със сертификати и награди за най-добрите. \\
 	\\
-	Проектът ни е предназначен за начинаещи и по-напреднали в програмирането. Състезанията ще съдържат теоретична част, но най-вече ще бъдат ориентиране към практиката. \\
+	Проектът ни е предназначен за начинаещи и по-напреднали в програмирането. Състезанията ще съдържат теоретична част, но най-вече ще бъдат ориентирани към практиката. \\
 	\\
 	Системата за теставане на практическите задачи е „\foreignlanguage{english}{The Judgata}“, отделен проект, който ние интегрираме в нашия. \\\vspace{0.5cm}
 	
@@ -59,184 +60,130 @@
 	\newpage
 	\section{Описание на реализацията}
 	Схемата по-долу демонстира отделните части на приложението и връзките между тях:\\ \vspace{0.5cm} \\
-	{\small
-		\begin{tikzpicture}[
-		auto,
-		level 1/.style={sibling distance=50mm},
-		level 2/.style={sibling distance=25mm},
-		level 3/.style={sibling distance=25mm},
-		level 4/.style={sibling distance=25mm},
-		every node/.style = {shape=rectangle,
-			draw, align=center,
-			top color=white, bottom color=blue!20}]
-		\node[draw] {Приложение}
-		child
-		{
-			node[draw] {Ученическа система}
-			child
-			{
-				node[draw] {Статична\\част}
-				child
-				{
-					node[draw] {Секция\\„Курсове“}
-				}
-				child
-				{
-					node[draw] {Секция\\„Видеа“}	
-				}
-				child
-				{
-					node[draw] {Секция\\„Презентации“}	
-				}
-			}
-			child
-			{
-				node[draw] {База\\данни}
-			}
-			child
-			{
-				node[draw] {Сертификати}
-			}
+	\tikzstyle{every node}=[draw=black,thick,anchor=west]
+	\tikzstyle{selected}=[draw=red,fill=red!30]
+	\tikzstyle{selectedg}=[draw=green,fill=green!30]
+	\tikzstyle{selectedo}=[draw=orange,fill=orange!30]
+	\tikzstyle{selectedb}=[draw=blue,fill=blue!30]
+	\tikzstyle{optional}=[dashed,fill=gray!50]
+	\begin{tikzpicture}[%
+	grow via three points={one child at (0.5,-0.7) and
+		two children at (0.5,-0.7) and (0.5,-1.4)},
+	edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+	\node {Приложение}	
+	child { node {Ученическа система}
+		child { node {Статична част}
+			child { node {Секция „Курсове“}}
+			child { node {Секция „Видео уроци“}}
+			child { node {Секция „Презентации“}}
 		}
-		child
-		{
-			child
-			{
-				node[draw,top color=white, bottom color=green!20] {\foreignlanguage{english}{The Jugdata}}
-				child 
-				{
-					node[draw] {База данни}
-				}
-			}
-		}
-		child
-		{
-			node[draw] {Чат/Форум}
-			child 
-			{
-				node[draw] {База данни}
-			}
-			child
-			{
-				node[draw] {Стаи}
-			}
-		}
-		;
-		\end{tikzpicture}
+		child [missing] {}				
+		child [missing] {}				
+		child [missing] {}
+		child { node {База данни}}
+		child { node {Сертификати}}
 	}
-	\\\vspace {2cm} \\
-	\includegraphics[width=0.9\textwidth]{cert} \\
+	child [missing] {}				
+	child [missing] {}				
+	child [missing] {}
+	child [missing] {}				
+	child [missing] {}				
+	child [missing] {}
+	child { node {Тестваща система - The Jugdata}
+		child { node {База данни}}
+		child { node {Външен вид}}
+	}
+	child [missing] {}				
+	child [missing] {}	
+	child { node {Чат/Форум}
+		child { node {База данни}}
+		child { node {Стаи}}
+	}
+	;
+	\end{tikzpicture}
+	\\\vspace {1cm} \\
+	{\centering \includegraphics[width=0.65\textwidth]{cert}}
 	\newpage
 	\section{Избор на програмно-технически средства}
 	Технологиите, които използваме са добре известни и са се доказали с времето. Те са:
 	\begin{itemize}
 		\item \foreignlanguage{english}{NGINX} сървър
-		\item \foreignlanguage{english}{Node.JS \& MongoDB} (\foreignlanguage{english}{The Judgata})
-		\item \foreignlanguage{english}{JADE} (\foreignlanguage{english}{The Judgata})
-		\item \foreignlanguage{english}{Reveal.JS} - инструмент за създаване на презентации
-		\item \foreignlanguage{english}{Bootstrap (Jumbotron)}
-		\item \foreignlanguage{english}{FastCGI - Fast Common Gateway Interface, C++, MySQL} (ученическа система)
+		\item \textcolor{green!60!black}{\foreignlanguage{english}{Node.JS \& MongoDB} (\foreignlanguage{english}{The Judgata})}
+		\item \textcolor{blue}{\foreignlanguage{english}{JADE} (\foreignlanguage{english}{The Judgata})}
+		\item \textcolor{black}{\foreignlanguage{english}{Reveal.JS} - инструмент за създаване на презентации}
+		\item \textcolor{orange}{\foreignlanguage{english}{Bootstrap (Jumbotron)}}
+		\item \textcolor{red}{\foreignlanguage{english}{FastCGI - Fast Common Gateway Interface, C++, MySQL} (ученическа система)}
 	\end{itemize}
-	\vspace{1cm}
-	На \foreignlanguage{bulgarian}{с}хемата по-долу виждате отделните  части на приложениетf заедно със съответната технология:\\
-	\vspace{0.5cm} \\
-	{\small
-		\begin{tikzpicture}[
-		auto,
-		level 1/.style={sibling distance=50mm},
-		level 2/.style={sibling distance=25mm},
-		level 3/.style={sibling distance=30mm},
-		level 4/.style={sibling distance=25mm},
-		every node/.style = {shape=rectangle,
-			draw, align=center,
-			top color=white, bottom color=blue!20}]
-		\node[draw] {Приложение}
-		child
-		{
-			node[draw] {Ученическа система}
-			child
-			{
-				node[draw] {Статична\\част}
-				child{child
-					{
-						node[draw,top color=white, bottom color=red!20] {\foreignlanguage{english}{Bootstrap}\\ \foreignlanguage{english}{(Jumbotron)}}
-						child
-						{
-							node[draw] {Секция\\„Курсове“}
+	\vspace{0.5cm}
+	На \foreignlanguage{bulgarian}{с}хемата по-долу виждате отделните  части на приложението заедно със съответната технология:\\
+	\vspace{0.25cm} \\
+		\begin{tikzpicture}[%
+		grow via three points={one child at (0.5,-0.7) and
+			two children at (0.5,-0.7) and (0.5,-1.4)},
+		edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+		\node[selected] {NGINX сървър}	
+		child { node {Приложение}
+			child { node {Ученическа система}
+				child { node {Статична част}
+					child {
+						node[selectedo] {Bootstrap (Jumbotron)}
+						child { node {Секция „Курсове“}}
+						child { node {Секция „Видео уроци“}}
+					}
+					child [missing] {}				
+					child [missing] {}	
+					child { 
+						node[selected] {Reveal.JS}
+						child {
+							node {Секция „Презентации“}
 						}
-						child
-						{
-							node[draw] {Секция\\„Видеа“}	
-						}
-				}}
-				child
-				{
-					node[draw,top color=white, bottom color=red!20] {\foreignlanguage{english}{Reveal.JS}}
-					child
-					{
-						node[draw] {Секция\\„Презентации“}	
 					}
 				}
+				child [missing] {}	
+				child [missing] {}				
+				child [missing] {}				
+				child [missing] {}				
+				child [missing] {}	
+				child { node {База данни}
+					child { node[selected] {MySQL}}
+				}			
+			child [missing] {}	
+				child { node {Сертификати}}
 			}
-			child
-			{
-				node[draw] {База\\данни}
-			}
-			child
-			{
-				node[draw] {Сертификати}
-			}
-		}
-		child
-		{
-			child
-			{
-				node[draw,top color=white, bottom color=green!20] {\foreignlanguage{english}{The Jugdata}}
-				child 
-				{
-					node[draw,top color=white, bottom color=red!20] {\foreignlanguage{english}{Node.JS}}
-					child
-					{
-						node[draw] {База данни}
-						child
-						{
-							node[draw,top color=white, bottom color=red!20] {\foreignlanguage{english}{MongoDB}}	
-						}	
-					}
-					child
-					{
-						node[draw] {Външен вид}
-						child
-						{
-							node[draw,,top color=white, bottom color=red!20]{\foreignlanguage{english}{JADE}}	
-						}	
-					}
+			child [missing] {}			
+			child [missing] {}					
+			child [missing] {}	
+			child [missing] {}				
+			child [missing] {}				
+			child [missing] {}
+			child [missing] {}				
+			child [missing] {}				
+			child [missing] {}
+			child { node {Тестваща система - The Jugdata}
+				child { node {База данни}
+					child { node[selectedg] {MongoDB}}
+				}
+				child [missing] {}
+				child { node {Външен вид}
+					child { node[selectedb] {JADE}}
 				}
 			}
-		}
-		child
-		{
-			node[draw] {Чат/Форум}
-			child 
-			{
-				node[draw,top color=white, bottom color=red!20] {\foreignlanguage{english}{Node.JS}}
-				child
-				{
-					node[draw] {База данни}
-					child
-					{
-						node[draw,top color=white, bottom color=red!20] {\foreignlanguage{english}{MongoDB}}	
-					}	
-				}
-				child
-				{
-					node[draw] {Стаи}
+			child [missing] {}				
+			child [missing] {}
+			child [missing] {}				
+			child [missing] {}	
+			child { node {Чат/Форум}
+				child { node[selectedg] {Node.JS}
+					child { node {База данни}
+						child { node[selectedg] {MongoDB}}
+					}			
+					child [missing] {}	
+					child { node {Стаи}}
 				}
 			}
 		}
 		;
-		\end{tikzpicture}
-	}
+	\end{tikzpicture}
 	\newpage
 	\section{Описание на програмната система/програмното осигуряване} 
 	Тъй като в проекта ни се налага дя работим с пароли за потребителите, използваме някой алгоритми за хеширане. \\ \vspace {0.5cm}
@@ -281,6 +228,7 @@
 				& & &\\
 				\hline
 				
+				
 			\end{tabular}
 		}
 	\end{table}
@@ -288,12 +236,8 @@
 	\section{Изложение}
 	Нашия проект представлява онлайн система за управление на обученията, която да съчетава най-добрите практики при организиране на уроците, така че да е интересно, полезно и максимално улеснено за обучаващия се. Най-важното в проекта ни е да поощряваме бъдещия програмист, като му демонстрираме, че не е толкова трудно, колкото звучи. Това става чрез онлайн състезания, насочени към неговото ниво, със сертификати и награди за най-добрите. \\\vspace {3cm} \\
 	\includegraphics[width=0.9\textwidth]{academy} \\
-	\section{Преглед на проекта}
-	Може да прегледате проекта \href{https://infocourse.techedu.cf}{тук} 
-	\section{Информация за участниците в него}
-	Може да прегледате участниците в проекта \href{https://techedu.cf}{тук} 
-	\section{Информация за \foreignlanguage{english}{The Judgata}}
-	Може да прегледате  в проекта \href{https://judge.techedu.cf}{тук} 
+	\section{\underline{\href{https://infocourse.techedu.cf}{Преглед на проекта}}}
+	\section{\underline{\href{https://judge.techedu.cf}{Преглед на The Judgata}}}
 	\newpage
 	\section{Благодарности}
 	Специални благодарности на:
