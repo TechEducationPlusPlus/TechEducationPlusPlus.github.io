@@ -1,4 +1,5 @@
 \select@language {bulgarian}
+\select@language {bulgarian}
 \contentsline {section}{\numberline {1}\IeC {\CYRU }\IeC {\cyrv }\IeC {\cyro }\IeC {\cyrd }}{4}{section.1}
 \contentsline {section}{\numberline {2}\IeC {\CYRO }\IeC {\cyrp }\IeC {\cyri }\IeC {\cyrs }\IeC {\cyra }\IeC {\cyrn }\IeC {\cyri }\IeC {\cyre } \IeC {\cyrn }\IeC {\cyra } \IeC {\cyrr }\IeC {\cyre }\IeC {\cyra }\IeC {\cyrl }\IeC {\cyri }\IeC {\cyrz }\IeC {\cyra }\IeC {\cyrc }\IeC {\cyri }\IeC {\cyrya }\IeC {\cyrt }\IeC {\cyra }}{5}{section.2}
 \contentsline {section}{\numberline {3}\IeC {\CYRI }\IeC {\cyrz }\IeC {\cyrb }\IeC {\cyro }\IeC {\cyrr } \IeC {\cyrn }\IeC {\cyra } \IeC {\cyrp }\IeC {\cyrr }\IeC {\cyro }\IeC {\cyrg }\IeC {\cyrr }\IeC {\cyra }\IeC {\cyrm }\IeC {\cyrn }\IeC {\cyro }-\IeC {\cyrt }\IeC {\cyre }\IeC {\cyrh }\IeC {\cyrn }\IeC {\cyri }\IeC {\cyrch }\IeC {\cyre }\IeC {\cyrs }\IeC {\cyrk }\IeC {\cyri } \IeC {\cyrs }\IeC {\cyrr }\IeC {\cyre }\IeC {\cyrd }\IeC {\cyrs }\IeC {\cyrt }\IeC {\cyrv }\IeC {\cyra }}{6}{section.3}
