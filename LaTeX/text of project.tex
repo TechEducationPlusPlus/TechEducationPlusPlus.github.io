@@ -37,16 +37,13 @@
 	\newpage
 	\begin{abstract}
 		\large{
-			Факт е, че има създадени вече системи за управление на обученията. Те имат някои недостатъци. Например: видеата на уроците са с продължителност 3-4 часа - твърде много; повечето системи нямат практически задачи за упражнение (програмиране се учи най-добре с практика, която липсва); други системи имат само теоретични тестове (напълно достатъчно за добро усвояване на знанията), но така не се отчитат практическите умения.
+			Факт е, че има създадени вече системи за управление на обученията. Те имат някои недостатъци. Например: видеата на уроците са с продължителност 3-4 часа - твърде дълго; повечето системи нямат практически задачи за упражнение (програмиране се учи най-добре с практика, която липсва); други системи имат само теоретични тестове (напълно достатъчно за добро усвояване на знанията), но така не се отчитат практическите умения.
 			
 			Идеята на нашия проект е да направим онлайн система за управление на обученията, която да съчетава добри практики при организиране на уроците, така че да е интересно, полезно и максимално улеснено за обучаващия се. Най-важната част на проекта ни е да стимулираме бъдещия програмист, като му покажем, че не е толкова трудно, колкото звучи. Това става чрез онлайн състезания, насочени към неговото ниво, със сертификати и награди за най-добрите.
 			
 			Проектът ни е предназначен главно за начинаещи и по-напреднали в програмирането. Състезанията ще съдържат теоретична част, но най-вече ще бъдат ориентиране към практиката.
 			
 			Системата за теставане на практическите задачи е „\foreignlanguage{english}{The Judgata}“, отделен проект, който ние интегрираме в нашия.
-			
-			В този проект се включват и нашите преподаватели Делян Пирински, Краси Паскалев, Красен Фердинандов и Васил Тинчев.
-		}
 	\end{abstract}
 	\newpage
 	\section{Увод}
@@ -117,76 +114,76 @@
 	\vspace{0.5cm}
 	На \foreignlanguage{bulgarian}{с}хемата по-долу виждате отделните  части на приложението заедно със съответната технология:\\
 	\vspace{0.25cm} \\
-	\begin{tikzpicture}[%
-	grow via three points={one child at (0.5,-0.7) and
-		two children at (0.5,-0.7) and (0.5,-1.4)},
-	edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
-	\node[selected] {NGINX сървър}	
-	child { node {Приложение}
-		child { node {Ученическа система}
-			child { node {Статична част}
-				child {
-					node[selectedo] {Bootstrap (Jumbotron)}
-					child { node {Секция „Курсове“}}
-					child { node {Секция „Видео уроци“}}
-				}
-				child [missing] {}				
-				child [missing] {}	
-				child { 
-					node[selected] {Reveal.JS}
+		\begin{tikzpicture}[%
+		grow via three points={one child at (0.5,-0.7) and
+			two children at (0.5,-0.7) and (0.5,-1.4)},
+		edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+		\node[selected] {NGINX сървър}	
+		child { node {Приложение}
+			child { node {Ученическа система}
+				child { node {Статична част}
 					child {
-						node {Секция „Презентации“}
+						node[selectedo] {Bootstrap (Jumbotron)}
+						child { node {Секция „Курсове“}}
+						child { node {Секция „Видео уроци“}}
+					}
+					child [missing] {}				
+					child [missing] {}	
+					child { 
+						node[selected] {Reveal.JS}
+						child {
+							node {Секция „Презентации“}
+						}
 					}
 				}
+				child [missing] {}	
+				child [missing] {}				
+				child [missing] {}				
+				child [missing] {}				
+				child [missing] {}	
+				child { node {База данни}
+					child { node[selected] {MySQL}}
+				}			
+			child [missing] {}	
+				child { node {Сертификати}}
 			}
+			child [missing] {}			
+			child [missing] {}					
 			child [missing] {}	
 			child [missing] {}				
 			child [missing] {}				
-			child [missing] {}				
-			child [missing] {}	
-			child { node {База данни}
-				child { node[selected] {MySQL}}
-			}			
-			child [missing] {}	
-			child { node {Сертификати}}
-		}
-		child [missing] {}			
-		child [missing] {}					
-		child [missing] {}	
-		child [missing] {}				
-		child [missing] {}				
-		child [missing] {}
-		child [missing] {}				
-		child [missing] {}				
-		child [missing] {}
-		child { node {Тестваща система - The Jugdata}
-			child { node {База данни}
-				child { node[selectedg] {MongoDB}}
-			}
 			child [missing] {}
-			child { node {Външен вид}
-				child { node[selectedb] {JADE}}
-			}
-		}
-		child [missing] {}				
-		child [missing] {}
-		child [missing] {}				
-		child [missing] {}	
-		child { node {Чат/Форум - Let's chat}
-			child { node[selectedg] {Node.JS}
+			child [missing] {}				
+			child [missing] {}				
+			child [missing] {}
+			child { node {Тестваща система - The Jugdata}
 				child { node {База данни}
 					child { node[selectedg] {MongoDB}}
-				}			
-				child [missing] {}	
-				child { node {Стаи}}
+				}
+				child [missing] {}
+				child { node {Външен вид}
+					child { node[selectedb] {JADE}}
+				}
+			}
+			child [missing] {}				
+			child [missing] {}
+			child [missing] {}				
+			child [missing] {}	
+			child { node {Чат/Форум - Let's chat}
+				child { node[selectedg] {Node.JS}
+					child { node {База данни}
+						child { node[selectedg] {MongoDB}}
+					}			
+					child [missing] {}	
+					child { node {Стаи}}
+				}
 			}
 		}
-	}
-	;
+		;
 	\end{tikzpicture}
 	\newpage
 	\section{Описание на програмната система/програмното осигуряване} 
-	Тъй като в проекта ни се налага да работим с пароли за потребителите, използваме някой алгоритми за хеширане. \\ \vspace {0.5cm}
+	Тъй като в проекта ни се налага да работим с пароли за потребителите, използваме някои алгоритми за хеширане. \\ \vspace {0.5cm}
 	%\includegraphics[width=1\textwidth]{logandreg} \\ \vspace {0.5cm}
 	\includegraphics[width=0.80\textwidth]{login} \\ \vspace {0.5cm}
 	\includegraphics[width=0.80\textwidth]{register}
@@ -214,7 +211,7 @@
 				& & &\\
 				\hline
 				& & &\\
-				Безплатни ресурси & Не и теоретичните задачи & Не & Да \\ 
+				Свободни ресурси & Не и теоретичните задачи & Не & Да \\ 
 				& & &\\
 				\hline
 				& & &\\
@@ -259,7 +256,7 @@
 		\bibitem{judgata}
 		{The Judgata}.
 		{https://judge.techedu.cf/}. \\
-		Copyright $\copyright\;$ 2007 Free Software Foundation, Inc. All rights reserved.
+		Copyright $\copyright\;$ 2016 Dimo Chanev. All rights reserved.
 		\bibitem{dom-to-image}
 		{DOM to image}.
 		{https://github.com/tsayen/dom-to-image}. \\
