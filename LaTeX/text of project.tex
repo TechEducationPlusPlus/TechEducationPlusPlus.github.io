@@ -117,72 +117,72 @@
 	\vspace{0.5cm}
 	На \foreignlanguage{bulgarian}{с}хемата по-долу виждате отделните  части на приложението заедно със съответната технология:\\
 	\vspace{0.25cm} \\
-		\begin{tikzpicture}[%
-		grow via three points={one child at (0.5,-0.7) and
-			two children at (0.5,-0.7) and (0.5,-1.4)},
-		edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
-		\node[selected] {NGINX сървър}	
-		child { node {Приложение}
-			child { node {Ученическа система}
-				child { node {Статична част}
+	\begin{tikzpicture}[%
+	grow via three points={one child at (0.5,-0.7) and
+		two children at (0.5,-0.7) and (0.5,-1.4)},
+	edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+	\node[selected] {NGINX сървър}	
+	child { node {Приложение}
+		child { node {Ученическа система}
+			child { node {Статична част}
+				child {
+					node[selectedo] {Bootstrap (Jumbotron)}
+					child { node {Секция „Курсове“}}
+					child { node {Секция „Видео уроци“}}
+				}
+				child [missing] {}				
+				child [missing] {}	
+				child { 
+					node[selected] {Reveal.JS}
 					child {
-						node[selectedo] {Bootstrap (Jumbotron)}
-						child { node {Секция „Курсове“}}
-						child { node {Секция „Видео уроци“}}
-					}
-					child [missing] {}				
-					child [missing] {}	
-					child { 
-						node[selected] {Reveal.JS}
-						child {
-							node {Секция „Презентации“}
-						}
+						node {Секция „Презентации“}
 					}
 				}
-				child [missing] {}	
-				child [missing] {}				
-				child [missing] {}				
-				child [missing] {}				
-				child [missing] {}	
-				child { node {База данни}
-					child { node[selected] {MySQL}}
-				}			
-			child [missing] {}	
-				child { node {Сертификати}}
 			}
-			child [missing] {}			
-			child [missing] {}					
 			child [missing] {}	
 			child [missing] {}				
 			child [missing] {}				
-			child [missing] {}
 			child [missing] {}				
-			child [missing] {}				
-			child [missing] {}
-			child { node {Тестваща система - The Jugdata}
-				child { node {База данни}
-					child { node[selectedg] {MongoDB}}
-				}
-				child [missing] {}
-				child { node {Външен вид}
-					child { node[selectedb] {JADE}}
-				}
+			child [missing] {}	
+			child { node {База данни}
+				child { node[selected] {MySQL}}
+			}			
+			child [missing] {}	
+			child { node {Сертификати}}
+		}
+		child [missing] {}			
+		child [missing] {}					
+		child [missing] {}	
+		child [missing] {}				
+		child [missing] {}				
+		child [missing] {}
+		child [missing] {}				
+		child [missing] {}				
+		child [missing] {}
+		child { node {Тестваща система - The Jugdata}
+			child { node {База данни}
+				child { node[selectedg] {MongoDB}}
 			}
-			child [missing] {}				
 			child [missing] {}
-			child [missing] {}				
-			child [missing] {}	
-			child { node {Чат/Форум}
-				child { node[selectedg] {Node.JS}
-					child { node {База данни}
-						child { node[selectedg] {MongoDB}}
-					}			
-					child [missing] {}	
-					child { node {Стаи}}
-				}
+			child { node {Външен вид}
+				child { node[selectedb] {JADE}}
 			}
 		}
-		;
+		child [missing] {}				
+		child [missing] {}
+		child [missing] {}				
+		child [missing] {}	
+		child { node {Чат/Форум - Let's chat}
+			child { node[selectedg] {Node.JS}
+				child { node {База данни}
+					child { node[selectedg] {MongoDB}}
+				}			
+				child [missing] {}	
+				child { node {Стаи}}
+			}
+		}
+	}
+	;
 	\end{tikzpicture}
 	\newpage
 	\section{Описание на програмната система/програмното осигуряване} 
