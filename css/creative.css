@@ -528,3 +528,7 @@ body .container-fluid .well p {
 	background-color: #009F89 !important;
 	color: white;
 }
+.btn.btn-primary.page-scroll:hover, .btn.btn-primary.page-scroll:focus {
+	background-color: white !important;
+	color: #009688 !important;
+}
